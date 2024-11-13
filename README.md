@@ -1,6 +1,6 @@
 # Envy-V1
 
-First version of Envy, a Rec Room memory internal that was a 5 minute project between me and a friend
+First version of Envy, released free in my discord server.
 
 - Camera Swap
 - Clipboard Swap
