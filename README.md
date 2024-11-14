@@ -1,7 +1,5 @@
 # Envy-V1
 
-First version of Envy, a memory-based internal cheat for Rec Room.
-
 - Camera Swap
 - Clipboard Swap
 
