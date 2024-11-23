@@ -1,0 +1,28 @@
+name: Build Windows DLL
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up MSVC (Visual Studio)
+        run: |
+          choco install visualstudio2022buildtools --version=17.0.0
+          choco install visualstudio2022-workload-vctools
+
+      - name: Configure and Build
+        shell: cmd
+        run: |
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+          cl /EHsc /LD main.cpp EntryPoint.cpp Exploits.cpp /I include /Fe:output.dll
